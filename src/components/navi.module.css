@@ -1,0 +1,35 @@
+.gnb {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 8vh;
+}
+
+.menu_area {
+  display: flex;
+  align-items: center;
+}
+
+.menu_area * {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav_icons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+}
+.nav_icons a span {
+  font-size: 0.8rem;
+  padding-bottom: 0;
+}
+.nav_icons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 15px;
+  font-size: 1.5rem;
+}
