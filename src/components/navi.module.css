@@ -33,3 +33,7 @@
   margin-right: 15px;
   font-size: 1.5rem;
 }
+
+a {
+  cursor: pointer;
+}

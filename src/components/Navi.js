@@ -2,7 +2,9 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import styles from "./navi.module.css";
 import { FaSearch, FaRegUser, FaShoppingCart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 const Navi = () => {
+  const navigate = useNavigate();
   return (
     <header>
       {" "}
@@ -31,7 +33,10 @@ const Navi = () => {
                 <FaSearch />
                 <span>검색</span>
               </a>
-              <a>
+              <a
+                onClick={() => {
+                  navigate("/login");
+                }}>
                 <FaRegUser />
                 <span>로그인</span>
               </a>
