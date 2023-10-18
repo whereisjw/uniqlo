@@ -37,3 +37,12 @@
 a {
   cursor: pointer;
 }
+
+.navbar {
+  background: white;
+  border: 1px solid #dadada;
+}
+
+.nav_menu {
+  text-transform: uppercase;
+}

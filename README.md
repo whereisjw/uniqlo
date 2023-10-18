@@ -6,6 +6,9 @@
 
 # 로그인 페이지 만들기
 
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+
 - 리액트 라우터로 로그인 페이지를 main 부분에 로드 되도록 생성했습니다.
 
 ```

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setAuthenticate }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -10,6 +10,7 @@ const Login = () => {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
+            setAuthenticate(true);
             navigate("/");
           }}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

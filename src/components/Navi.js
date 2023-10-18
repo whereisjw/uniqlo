@@ -3,12 +3,12 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import styles from "./navi.module.css";
 import { FaSearch, FaRegUser, FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-const Navi = () => {
+const Navi = ({ category, authenticate }) => {
   const navigate = useNavigate();
   return (
     <header>
       {" "}
-      <Navbar bg="light" data-bs-theme="light">
+      <Navbar className={styles.navbar}>
         <Container>
           <div className={styles.gnb}>
             <div className={styles.menu_area}>
@@ -21,11 +21,15 @@ const Navi = () => {
                 />
               </Navbar.Brand>
               <Nav className="me-auto">
-                <Nav.Link href="/all">All</Nav.Link>
-                <Nav.Link href="/women">women</Nav.Link>
-                <Nav.Link href="/men">men</Nav.Link>
-                <Nav.Link href="/kids">Kids</Nav.Link>
-                <Nav.Link href="/Baby">Baby</Nav.Link>
+                {category.map((v) => (
+                  <Nav.Link
+                    className={styles.nav_menu}
+                    onClick={() => {
+                      navigate(`/${v}`);
+                    }}>
+                    {v}
+                  </Nav.Link>
+                ))}
               </Nav>
             </div>
             <div className={styles.nav_icons}>
@@ -38,7 +42,11 @@ const Navi = () => {
                   navigate("/login");
                 }}>
                 <FaRegUser />
-                <span>로그인</span>
+                {authenticate == true ? (
+                  <span>로그아웃</span>
+                ) : (
+                  <span>로그인</span>
+                )}
               </a>
               <a>
                 <FaShoppingCart />

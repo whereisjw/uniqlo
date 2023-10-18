@@ -5,17 +5,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import Navi from "./components/Navi";
 import Login from "./pages/Login";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import All from "./pages/All";
+import axios from "axios";
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
+  const category = ["all", "women", "men", "kids", "baby"];
+  axios.get(`/clothes/men.json`).then((res) => {
+    console.log(res.data);
+  });
+  useEffect(() => {
+    console.log(authenticate);
+  }, [authenticate]);
   return (
     <>
-      <Navi />
-      <Button>버튼</Button>
+      <Navi category={category} authenticate={authenticate} />
+
       <Routes>
-        <Route path="/" element={<div>홈화면</div>}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<All category={category} />}></Route>
+        <Route
+          path="/login"
+          element={<Login setAuthenticate={setAuthenticate} />}></Route>
       </Routes>
     </>
   );
