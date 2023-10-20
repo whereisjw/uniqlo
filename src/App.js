@@ -8,13 +8,24 @@ import Login from "./pages/Login";
 import { useEffect, useState } from "react";
 import All from "./pages/All";
 import axios from "axios";
+import Cart from "./pages/Cart";
+import Detail from "./pages/Detail";
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false);
-  const category = ["all", "women", "men", "kids", "baby"];
-  axios.get(`/clothes/men.json`).then((res) => {
-    console.log(res.data);
-  });
+  const category = ["women", "men", "kids", "baby"];
+  const [card, setCard] = useState([]);
+  let displayItems = () => {
+    axios.get(`/clothes/men.json`).then((res) => {
+      console.log(res.data.men);
+      setCard(res.data.men);
+    });
+  };
+
+  useEffect(() => {
+    displayItems();
+  }, []);
+
   useEffect(() => {
     console.log(authenticate);
   }, [authenticate]);
@@ -23,10 +34,14 @@ function App() {
       <Navi category={category} authenticate={authenticate} />
 
       <Routes>
-        <Route path="/" element={<All category={category} />}></Route>
+        <Route
+          path="/"
+          element={<All card={card} category={category} />}></Route>
         <Route
           path="/login"
           element={<Login setAuthenticate={setAuthenticate} />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/product/:id" element={<Detail card={card} />}></Route>
       </Routes>
     </>
   );

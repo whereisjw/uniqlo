@@ -48,7 +48,10 @@ const Navi = ({ category, authenticate }) => {
                   <span>로그인</span>
                 )}
               </a>
-              <a>
+              <a
+                onClick={() => {
+                  navigate("/cart");
+                }}>
                 <FaShoppingCart />
                 <span>장바구니</span>
               </a>

@@ -1,0 +1,35 @@
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+figcaption p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.sale {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #00b07f;
+  margin-right: 10px;
+}
+.price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.fake_price {
+  font-size: 1.1;
+  text-decoration: line-through;
+}
+.card_box img {
+  overflow: hidden;
+}
+
+.card_box:hover img {
+  transform: scale(1.1);
+  filter: brightness(60%);
+  overflow: hidden;
+}
